@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DNS & IP Manager</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div id="login" class="login"><div class="login-box"><h1>DNS & IP Manager</h1><p>Gerenciamento de infraestrutura</p>
+<input id="username" placeholder="Usuário"><input id="password" type="password" placeholder="Senha"><button onclick="login()">Entrar</button><div id="loginMsg"></div></div></div>
+<div id="app" class="hidden"><aside><h2>DNS & IP</h2><nav>
+<button onclick="show('dashboard')">Dashboard</button><button onclick="show('servers')">Servidores</button><button onclick="show('networks')">Redes</button><button onclick="show('dns')">DNS</button><button onclick="show('ips')">Endereços IP</button><button id="usersNav" onclick="show('users')">Usuários</button><button id="auditNav" onclick="show('audit')">Auditoria</button>
+</nav><button class="logout" onclick="logout()">Sair</button></aside>
+<main><header><div><h1 id="pageTitle">Dashboard</h1><small id="who"></small></div></header>
+<section id="content"></section></main></div>
+<script src="js/app.js"></script></body></html>

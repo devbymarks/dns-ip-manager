@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: dns-ip-manager-postgres
+    environment:
+      POSTGRES_DB: dns_ip_manager
+      POSTGRES_USER: dnsadmin
+      POSTGRES_PASSWORD: dnsadmin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/02-seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+      - ./database/03-views.sql:/docker-entrypoint-initdb.d/03-views.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dnsadmin -d dns_ip_manager"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
