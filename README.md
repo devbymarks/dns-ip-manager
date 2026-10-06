@@ -1,8 +1,22 @@
 # 🌐 DNS & IP Manager
 
-Sistema de gerenciamento de redes, endereços IP, servidores, VLANs e registros DNS.
+Sistema web para gerenciamento de **redes, endereços IP, VLANs, servidores e registros DNS**, desenvolvido com **Java, Spring Boot, PostgreSQL, Tomcat e Nginx**.
 
-Projeto full-stack para praticar **SQL/PostgreSQL + Java + Spring Boot + Tomcat + Nginx + HTML/CSS/JavaScript**.
+Projeto desenvolvido como laboratório prático de **SQL, PostgreSQL, desenvolvimento backend, infraestrutura Linux, redes e administração de servidores**.
+
+## 🚀 Tecnologias
+
+- Java 17+
+- Spring Boot
+- PostgreSQL
+- Apache Tomcat 10.1+
+- Nginx
+- HTML5, CSS3 e JavaScript
+- BCrypt
+- REST API
+- Docker / Docker Compose
+- Linux
+- Maven
 
 ## 🏗️ Arquitetura
 
@@ -10,7 +24,7 @@ Projeto full-stack para praticar **SQL/PostgreSQL + Java + Spring Boot + Tomcat 
 Navegador
    │
    ▼
- Nginx :80
+Nginx :80
    │
    ▼
 Tomcat :8080
@@ -24,39 +38,146 @@ PostgreSQL :5432
 
 ## ✨ Funcionalidades
 
-- Cadastro de redes/subnets
-- Cadastro de VLANs
-- Cadastro de servidores
-- Controle de endereço IP
-- Registro DNS
-- Consulta de servidores por rede
-- Dashboard com indicadores
-- Validações de banco
-- Índices PostgreSQL
-- Views para consultas
-- API REST
-- Interface web
-- Auditoria básica de alterações
+### 🌐 Redes
+- Cadastro de redes e subnets
+- Máscara de rede
+- Gateway
+- VLAN associada
+- Consulta de redes
+- Relacionamento entre redes e servidores
 
-## 🗂️ Estrutura
+### 🖥️ Servidores
+- Cadastro de servidores
+- Endereço IP
+- Nome do servidor
+- Rede associada
+- Status
+- Verificação de conectividade
+- Histórico de verificações
+
+### 🔢 Endereços IP
+- Cadastro de IPs
+- Controle de IPs ocupados
+- Controle de IPs reservados
+- Identificação de IPs disponíveis
+- Busca automática do próximo IP disponível
+- Exclusão de endereços de rede e broadcast da disponibilidade
+
+### 🧩 VLANs
+- Cadastro de VLANs
+- Identificação e nome
+- Relacionamento com redes
+
+### 🌎 DNS
+- Cadastro de registros DNS
+- Nome do host
+- Tipo de registro
+- Valor
+- TTL
+- Relacionamento com servidores
+
+### 📊 Dashboard
+Indicadores de:
+- Redes cadastradas
+- Servidores
+- Endereços IP
+- Registros DNS
+- Verificações recentes
+
+### 🔐 Autenticação
+- Login e logout
+- Sessão HTTP
+- Senhas protegidas com BCrypt
+- Controle de acesso no backend
+
+Perfis:
+
+| Perfil | Permissões |
+|---|---|
+| ADMIN | Acesso completo |
+| OPERATOR | Operações de gerenciamento |
+| VIEWER | Consulta |
+
+### 👥 Usuários
+- Criação de usuários
+- Definição de perfil
+- Consulta de usuários
+- Gerenciamento de acesso
+
+### 📋 Auditoria
+Registro de operações importantes, como:
+- Login
+- Logout
+- Criação de registros
+- Alterações
+- Operações administrativas
+- Verificações de servidores
+
+### 📡 Monitoramento
+Verificação de conectividade de servidores cadastrados e armazenamento do histórico no PostgreSQL.
+
+## 🗄️ Banco de Dados
+
+Banco:
+
+```text
+PostgreSQL
+```
+
+Nome padrão:
+
+```text
+dns_ip_manager
+```
+
+Principais tabelas:
+
+```text
+networks
+vlans
+servers
+ip_addresses
+dns_records
+roles
+users
+server_checks
+audit_log
+```
+
+Recursos utilizados:
+
+- PRIMARY KEY
+- FOREIGN KEY
+- UNIQUE
+- CHECK
+- INDEX
+- VIEW
+- Constraints
+- Relacionamentos
+
+## 📁 Estrutura
 
 ```text
 dns-ip-manager/
 ├── database/
 │   ├── 01-schema.sql
 │   ├── 02-seed.sql
-│   └── 03-views.sql
+│   ├── 03-views.sql
+│   ├── 04-auth.sql
+│   ├── 05-monitoring.sql
+│   └── 06-audit.sql
 ├── backend/
 │   ├── pom.xml
 │   └── src/main/
 │       ├── java/com/matheus/dnsipmanager/
 │       │   ├── DnsIpManagerApplication.java
-│       │   ├── config/CorsConfig.java
+│       │   ├── config/
 │       │   ├── controller/
 │       │   ├── model/
 │       │   ├── repository/
 │       │   └── service/
-│       └── resources/application.properties
+│       └── resources/
+│           └── application.properties
 ├── frontend/
 │   ├── index.html
 │   ├── css/style.css
@@ -71,49 +192,30 @@ dns-ip-manager/
 └── LICENSE
 ```
 
-## 🗄️ Banco de dados
+## 🐳 PostgreSQL com Docker
 
-Banco padrão:
-
-```text
-dns_ip_manager
-```
-
-Principais tabelas:
-
-- `networks`
-- `vlans`
-- `servers`
-- `ip_addresses`
-- `dns_records`
-- `audit_log`
-
-O banco usa `PRIMARY KEY`, `FOREIGN KEY`, `UNIQUE`, `CHECK`, índices e views. O usuário administrativo de laboratório é criado pelo backend na primeira inicialização se ainda não existir.
-
-## 🚀 Teste rápido com Docker
-
-Requisitos:
+### Requisitos
 
 - Docker
 - Docker Compose
+
+Inicie o PostgreSQL:
 
 ```bash
 docker compose up -d postgres
 ```
 
-Depois:
+Conecte ao banco:
 
 ```bash
 psql -h localhost -U dnsadmin -d dns_ip_manager
 ```
 
-Senha padrão de laboratório: `dnsadmin`
-
-> Para produção, altere a senha e nunca publique credenciais reais.
+> Para produção, altere as credenciais e nunca publique senhas reais.
 
 ## ☕ Backend Java
 
-Requisitos:
+### Requisitos
 
 - Java 17+
 - Maven 3.9+
@@ -124,7 +226,7 @@ cd backend
 mvn clean package
 ```
 
-O resultado será:
+O WAR será gerado em:
 
 ```text
 target/dns-ip-manager.war
@@ -136,23 +238,15 @@ Para executar localmente:
 mvn spring-boot:run
 ```
 
-API:
+## 🐱 Deploy no Tomcat
 
-```text
-http://localhost:8080/api
-```
-
-## 🐱 Tomcat
-
-O projeto gera um WAR para implantação em Tomcat 10.1+.
-
-Copie:
+O projeto gera um WAR compatível com Apache Tomcat 10.1+.
 
 ```bash
-sudo cp backend/target/dns-ip-manager.war /opt/tomcat/webapps/
+sudo cp target/dns-ip-manager.war /opt/tomcat/webapps/
 ```
 
-Após iniciar o Tomcat:
+Acesso:
 
 ```text
 http://localhost:8080/dns-ip-manager/
@@ -160,7 +254,13 @@ http://localhost:8080/dns-ip-manager/
 
 ## 🌐 Nginx
 
-Copie a configuração:
+Configuração:
+
+```text
+nginx/dns-ip-manager.conf
+```
+
+Instalação:
 
 ```bash
 sudo cp nginx/dns-ip-manager.conf /etc/nginx/conf.d/
@@ -168,64 +268,73 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-Acesse:
+Acesso:
 
 ```text
 http://localhost/
 ```
 
-## 🔌 Principais endpoints
+## 🔌 REST API
 
-```text
-GET    /api/dashboard
-GET    /api/networks
-POST   /api/networks
-GET    /api/servers
-POST   /api/servers
-GET    /api/dns
-POST   /api/dns
+### Autenticação
+
+```http
+POST /api/auth/login
+POST /api/auth/logout
+GET  /api/auth/me
 ```
 
-## 📚 Próximas evoluções
+### Dashboard
 
-- Autenticação e login
-- Controle de usuários/permissões
-- Busca de IP disponível
-- Importação de CSV
-- Ping/status dos hosts
-- Histórico completo
-- Alertas
-- LDAP/Active Directory
-- Docker completo com PostgreSQL + backend + Nginx
-- Testes automatizados
-- HTTPS
+```http
+GET /api/dashboard
+```
 
-## 👨‍💻 Autor
+### Redes
 
-Matheus Marks
+```http
+GET  /api/networks
+POST /api/networks
+```
 
-Projeto desenvolvido para estudos de SQL, PostgreSQL, Java, Linux, redes e infraestrutura.
+### Servidores
 
-⭐ Se este projeto foi útil para você, considere deixar uma estrela no repositório.
+```http
+GET  /api/servers
+POST /api/servers
+POST /api/servers/{id}/ping
+GET  /api/servers/checks/recent
+```
 
+### DNS
 
-## 🔐 Evolução — autenticação e administração
+```http
+GET  /api/dns
+POST /api/dns
+```
 
-A versão evoluída adiciona:
+### IPs disponíveis
 
-- Login com senha protegida por BCrypt
-- Perfis `ADMIN`, `OPERATOR` e `VIEWER`
-- Proteção das APIs no backend
-- Sessão HTTP
-- Administração de usuários
-- Auditoria
-- Verificação de servidores via backend
-- Histórico de verificações
-- Busca automática do próximo IP disponível
-- Dashboard ampliado
-- Telas de Redes, DNS, IPs, Usuários e Auditoria
+```http
+GET /api/ip-addresses/available?networkId=1
+```
 
-### Primeiro acesso de laboratório
+### Usuários
+
+```http
+GET  /api/users
+POST /api/users
+```
+
+### Auditoria
+
+```http
+GET /api/audit
+```
+
+## 🔐 Primeiro acesso
+
+Usuário administrativo de laboratório:
 
 ```text
 Usuário: admin
@@ -233,28 +342,75 @@ Senha: admin123
 Perfil: ADMIN
 ```
 
-**Troque a senha antes de qualquer uso real.**
+> ⚠️ Credenciais destinadas somente ao laboratório. Altere a senha antes de qualquer uso real.
 
-### API adicional
+## 🛡️ Segurança
+
+O projeto utiliza:
+
+- Autenticação baseada em sessão
+- BCrypt para senhas
+- Controle de permissões por perfil
+- Proteção das APIs no backend
+- Registro de auditoria
+- Validações de dados
+- Verificação de acesso aos recursos
+- Ping utilizando o IP previamente cadastrado
+
+O endpoint de ping não permite comandos arbitrários enviados pelo usuário.
+
+## 📚 Scripts SQL
 
 ```text
-POST /api/auth/login
-POST /api/auth/logout
-GET  /api/auth/me
-
-GET  /api/users
-POST /api/users
-
-GET  /api/ip-addresses/available?networkId=1
-
-POST /api/servers/{id}/ping
-GET  /api/servers/checks/recent
-
-GET  /api/audit
+01-schema.sql       → Estrutura principal
+02-seed.sql         → Dados iniciais
+03-views.sql        → Views e consultas
+04-auth.sql         → Autenticação
+05-monitoring.sql   → Monitoramento
+06-audit.sql        → Auditoria
 ```
 
-### Segurança
+## 🎯 Objetivo
 
-A autenticação é baseada em sessão e as senhas são armazenadas com BCrypt. As permissões são verificadas no backend. O endpoint de ping utiliza o IP previamente cadastrado no servidor; não aceita um comando arbitrário fornecido pelo usuário.
+O projeto coloca em prática conhecimentos de:
 
-Para produção, recomenda-se trocar a senha inicial, usar HTTPS, armazenar credenciais por variáveis de ambiente/secret manager e revisar a política de sessão.
+- SQL e PostgreSQL
+- Java e Spring Boot
+- REST API
+- Linux
+- Tomcat
+- Nginx
+- Redes
+- DNS
+- VLAN
+- Administração de servidores
+- Segurança
+- Docker
+- Git e GitHub
+
+O cenário foi pensado para se aproximar de ambientes reais de **infraestrutura e administração de servidores**.
+
+## 🔮 Próximas Evoluções
+
+- Importação de redes e IPs via CSV
+- Sistema de alertas
+- Notificações por e-mail
+- HTTPS
+- LDAP / Active Directory
+- Dashboard avançado
+- Containerização completa
+- Testes automatizados
+- Histórico avançado de disponibilidade
+- Backup e restauração do banco
+- Permissões mais detalhadas
+- Melhorias de responsividade
+
+## 👨‍💻 Autor
+
+**Matheus Marks**
+
+Projeto desenvolvido para estudos e prática de **SQL, PostgreSQL, Java, Linux, redes e infraestrutura de servidores**.
+
+---
+
+⭐ **Se este projeto foi útil para você, considere deixar uma estrela no repositório.**
