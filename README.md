@@ -413,4 +413,8 @@ Projeto desenvolvido para estudos e prática de **SQL, PostgreSQL, Java, Linux, 
 
 ---
 
-⭐ **Se este projeto foi útil para você, considere deixar uma estrela no repositório.**
+## ⭐ Apoie o projeto
+
+Se este projeto foi útil para você, considere deixar uma ⭐ no repositório.
+
+---
