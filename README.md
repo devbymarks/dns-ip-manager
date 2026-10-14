@@ -409,7 +409,7 @@ O cenário foi pensado para se aproximar de ambientes reais de **infraestrutura 
 
 **Matheus Marks**
 
-Projeto desenvolvido para estudos e prática de **SQL, PostgreSQL, Java, Linux, redes e infraestrutura de servidores**.
+Projeto idealizado e desenvolvido por mim com o objetivo de criar uma solução para gerenciamento de endereços IP, redes, registros DNS e infraestrutura de servidores. Atualmente, estou trabalhando para implementar a solução no ambiente real, testar suas funcionalidades e aprimorar continuamente o sistema, buscando torná-lo cada vez mais completo, confiável e adequado às necessidades do dia a dia.
 
 ---
 
