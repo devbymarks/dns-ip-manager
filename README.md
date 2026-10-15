@@ -2,21 +2,102 @@
 
 Sistema web para gerenciamento de **redes, endereços IP, VLANs, servidores e registros DNS**, desenvolvido com **Java, Spring Boot, PostgreSQL, Tomcat e Nginx**.
 
-Projeto desenvolvido como laboratório prático de **SQL, PostgreSQL, desenvolvimento backend, infraestrutura Linux, redes e administração de servidores**.
+Projeto idealizado para colocar em prática conhecimentos de **SQL, PostgreSQL, desenvolvimento backend, infraestrutura Linux, redes e administração de servidores**, com foco em criar, testar e aprimorar uma solução próxima de cenários reais.
 
-## 🚀 Tecnologias
+[![Java](https://img.shields.io/badge/Java-17%2B-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Backend-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Apache Tomcat](https://img.shields.io/badge/Apache%20Tomcat-10.1%2B-F8DC75?style=flat-square&logo=apachetomcat&logoColor=black)](https://tomcat.apache.org/)
+[![Nginx](https://img.shields.io/badge/Nginx-Web%20Server-009639?style=flat-square&logo=nginx&logoColor=white)](https://nginx.org/)
+[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Linux](https://img.shields.io/badge/Linux-Infrastructure-FCC624?style=flat-square&logo=linux&logoColor=black)](https://www.linux.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![Maven](https://img.shields.io/badge/Maven-Build-C71A36?style=flat-square&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
-- Java 17+
-- Spring Boot
-- PostgreSQL
-- Apache Tomcat 10.1+
-- Nginx
-- HTML5, CSS3 e JavaScript
-- BCrypt
-- REST API
-- Docker / Docker Compose
-- Linux
-- Maven
+---
+
+## 📌 Sobre o projeto
+
+O **DNS & IP Manager** é uma aplicação web para centralizar informações de redes, sub-redes, endereços IP, VLANs, servidores e registros DNS em um único ambiente.
+
+A solução reúne recursos de gerenciamento, autenticação, auditoria e verificação de conectividade, com backend em Java e Spring Boot e persistência em PostgreSQL.
+
+O projeto está em evolução contínua, com implementação e testes das funcionalidades para aprimorar sua confiabilidade e aproximá-lo das necessidades de ambientes reais de infraestrutura.
+
+---
+
+## ✨ Funcionalidades
+
+### 🌐 Redes
+- Cadastro e consulta de redes e sub-redes;
+- Configuração de máscara de rede e gateway;
+- Associação de VLANs;
+- Relacionamento entre redes e servidores.
+
+### 🖥️ Servidores
+- Cadastro de servidores e endereços IP;
+- Identificação por nome;
+- Associação a uma rede;
+- Controle de status;
+- Verificação de conectividade;
+- Histórico de verificações.
+
+### 🔢 Endereços IP
+- Cadastro e gerenciamento de endereços IP;
+- Controle de endereços ocupados e reservados;
+- Identificação de IPs disponíveis;
+- Busca automática do próximo IP disponível;
+- Exclusão dos endereços de rede e broadcast da disponibilidade.
+
+### 🧩 VLANs
+- Cadastro e identificação de VLANs;
+- Associação de VLANs às redes.
+
+### 🌎 DNS
+- Cadastro de registros DNS;
+- Definição de nome do host, tipo, valor e TTL;
+- Associação de registros a servidores.
+
+### 📊 Dashboard
+Indicadores para acompanhar:
+- Redes cadastradas;
+- Servidores;
+- Endereços IP;
+- Registros DNS;
+- Verificações recentes.
+
+### 🔐 Autenticação
+- Login e logout;
+- Gerenciamento de sessão HTTP;
+- Senhas protegidas com BCrypt;
+- Controle de acesso no backend.
+
+Perfis disponíveis:
+
+| Perfil | Permissões |
+| --- | --- |
+| `ADMIN` | Acesso completo |
+| `OPERATOR` | Operações de gerenciamento |
+| `VIEWER` | Consulta |
+
+### 👥 Usuários
+- Criação e consulta de usuários;
+- Definição de perfil;
+- Gerenciamento de acesso.
+
+### 📋 Auditoria
+Registro de operações importantes, incluindo:
+- Login e logout;
+- Criação de registros;
+- Alterações;
+- Operações administrativas;
+- Verificações de servidores.
+
+### 📡 Monitoramento
+Verificação da conectividade dos servidores cadastrados e armazenamento do histórico no PostgreSQL.
+
+---
 
 ## 🏗️ Arquitetura
 
@@ -36,99 +117,31 @@ Java / Spring Boot WAR
 PostgreSQL :5432
 ```
 
-## ✨ Funcionalidades
+---
 
-### 🌐 Redes
-- Cadastro de redes e subnets
-- Máscara de rede
-- Gateway
-- VLAN associada
-- Consulta de redes
-- Relacionamento entre redes e servidores
+## 🧰 Tecnologias
 
-### 🖥️ Servidores
-- Cadastro de servidores
-- Endereço IP
-- Nome do servidor
-- Rede associada
-- Status
-- Verificação de conectividade
-- Histórico de verificações
+| Tecnologia | Utilização |
+| --- | --- |
+| Java 17+ | Linguagem do backend |
+| Spring Boot | Framework da aplicação |
+| PostgreSQL | Banco de dados relacional |
+| Apache Tomcat 10.1+ | Servidor de aplicação |
+| Nginx | Servidor web e proxy reverso |
+| HTML5, CSS3 e JavaScript | Interface web |
+| BCrypt | Hash de senhas |
+| REST API | Comunicação entre cliente e backend |
+| Docker / Docker Compose | Execução de serviços em contêineres |
+| Linux | Ambiente de infraestrutura |
+| Maven | Gerenciamento de dependências e build |
 
-### 🔢 Endereços IP
-- Cadastro de IPs
-- Controle de IPs ocupados
-- Controle de IPs reservados
-- Identificação de IPs disponíveis
-- Busca automática do próximo IP disponível
-- Exclusão de endereços de rede e broadcast da disponibilidade
+---
 
-### 🧩 VLANs
-- Cadastro de VLANs
-- Identificação e nome
-- Relacionamento com redes
+## 🗄️ Banco de dados
 
-### 🌎 DNS
-- Cadastro de registros DNS
-- Nome do host
-- Tipo de registro
-- Valor
-- TTL
-- Relacionamento com servidores
+**Banco utilizado:** PostgreSQL
 
-### 📊 Dashboard
-Indicadores de:
-- Redes cadastradas
-- Servidores
-- Endereços IP
-- Registros DNS
-- Verificações recentes
-
-### 🔐 Autenticação
-- Login e logout
-- Sessão HTTP
-- Senhas protegidas com BCrypt
-- Controle de acesso no backend
-
-Perfis:
-
-| Perfil | Permissões |
-|---|---|
-| ADMIN | Acesso completo |
-| OPERATOR | Operações de gerenciamento |
-| VIEWER | Consulta |
-
-### 👥 Usuários
-- Criação de usuários
-- Definição de perfil
-- Consulta de usuários
-- Gerenciamento de acesso
-
-### 📋 Auditoria
-Registro de operações importantes, como:
-- Login
-- Logout
-- Criação de registros
-- Alterações
-- Operações administrativas
-- Verificações de servidores
-
-### 📡 Monitoramento
-Verificação de conectividade de servidores cadastrados e armazenamento do histórico no PostgreSQL.
-
-## 🗄️ Banco de Dados
-
-Banco:
-
-```text
-PostgreSQL
-```
-
-Nome padrão:
-
-```text
-dns_ip_manager
-```
+**Nome padrão:** `dns_ip_manager`
 
 Principais tabelas:
 
@@ -144,18 +157,19 @@ server_checks
 audit_log
 ```
 
-Recursos utilizados:
+Recursos de banco utilizados:
 
-- PRIMARY KEY
-- FOREIGN KEY
-- UNIQUE
-- CHECK
-- INDEX
-- VIEW
-- Constraints
-- Relacionamentos
+- `PRIMARY KEY`
+- `FOREIGN KEY`
+- `UNIQUE`
+- `CHECK`
+- `INDEX`
+- `VIEW`
+- Constraints e relacionamentos
 
-## 📁 Estrutura
+---
+
+## 📁 Estrutura do projeto
 
 ```text
 dns-ip-manager/
@@ -192,41 +206,47 @@ dns-ip-manager/
 └── LICENSE
 ```
 
+---
+
 ## 🐳 PostgreSQL com Docker
 
-### Requisitos
+### 📋 Requisitos
 
-- Docker
-- Docker Compose
+- Docker;
+- Docker Compose.
 
-Inicie o PostgreSQL:
+Inicie o serviço PostgreSQL:
 
 ```bash
 docker compose up -d postgres
 ```
 
-Conecte ao banco:
+Conecte-se ao banco:
 
 ```bash
 psql -h localhost -U dnsadmin -d dns_ip_manager
 ```
 
-> Para produção, altere as credenciais e nunca publique senhas reais.
+> **Segurança:** altere as credenciais padrão antes de qualquer implantação real e nunca publique senhas, tokens ou outros segredos no repositório.
+
+---
 
 ## ☕ Backend Java
 
-### Requisitos
+### 📋 Requisitos
 
-- Java 17+
-- Maven 3.9+
-- PostgreSQL
+- Java 17 ou superior;
+- Maven 3.9 ou superior;
+- PostgreSQL.
+
+Compile o projeto:
 
 ```bash
 cd backend
 mvn clean package
 ```
 
-O WAR será gerado em:
+O arquivo WAR será gerado em:
 
 ```text
 target/dns-ip-manager.war
@@ -238,29 +258,37 @@ Para executar localmente:
 mvn spring-boot:run
 ```
 
-## 🐱 Deploy no Tomcat
+---
 
-O projeto gera um WAR compatível com Apache Tomcat 10.1+.
+## 🐱 Deploy no Apache Tomcat
+
+O projeto gera um arquivo WAR destinado ao Apache Tomcat 10.1 ou superior.
+
+Copie o artefato para o diretório de aplicações do Tomcat:
 
 ```bash
 sudo cp target/dns-ip-manager.war /opt/tomcat/webapps/
 ```
 
-Acesso:
+Acesso local:
 
 ```text
 http://localhost:8080/dns-ip-manager/
 ```
 
+> Confirme o caminho de instalação do Tomcat e a compatibilidade das dependências antes do deploy.
+
+---
+
 ## 🌐 Nginx
 
-Configuração:
+Arquivo de configuração:
 
 ```text
 nginx/dns-ip-manager.conf
 ```
 
-Instalação:
+Instale a configuração e valide a sintaxe:
 
 ```bash
 sudo cp nginx/dns-ip-manager.conf /etc/nginx/conf.d/
@@ -268,15 +296,17 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-Acesso:
+Acesso local, conforme a configuração do servidor:
 
 ```text
 http://localhost/
 ```
 
+---
+
 ## 🔌 REST API
 
-### Autenticação
+### 🔐 Autenticação
 
 ```http
 POST /api/auth/login
@@ -284,20 +314,20 @@ POST /api/auth/logout
 GET  /api/auth/me
 ```
 
-### Dashboard
+### 📊 Dashboard
 
 ```http
 GET /api/dashboard
 ```
 
-### Redes
+### 🌐 Redes
 
 ```http
 GET  /api/networks
 POST /api/networks
 ```
 
-### Servidores
+### 🖥️ Servidores
 
 ```http
 GET  /api/servers
@@ -306,35 +336,39 @@ POST /api/servers/{id}/ping
 GET  /api/servers/checks/recent
 ```
 
-### DNS
+### 🌎 DNS
 
 ```http
 GET  /api/dns
 POST /api/dns
 ```
 
-### IPs disponíveis
+### 🔢 IPs disponíveis
 
 ```http
 GET /api/ip-addresses/available?networkId=1
 ```
 
-### Usuários
+### 👥 Usuários
 
 ```http
 GET  /api/users
 POST /api/users
 ```
 
-### Auditoria
+### 📋 Auditoria
 
 ```http
 GET /api/audit
 ```
 
-## 🔐 Primeiro acesso
+> Os endpoints acima documentam as rotas informadas para o projeto. Consulte a implementação para confirmar requisitos de autenticação, parâmetros e respostas de cada endpoint.
 
-Usuário administrativo de laboratório:
+---
+
+## 🔑 Primeiro acesso
+
+Credenciais de laboratório informadas para o projeto:
 
 ```text
 Usuário: admin
@@ -342,24 +376,30 @@ Senha: admin123
 Perfil: ADMIN
 ```
 
-> ⚠️ Credenciais destinadas somente ao laboratório. Altere a senha antes de qualquer uso real.
+> ⚠️ **Atenção:** essas credenciais são destinadas somente ao laboratório. Altere-as antes de qualquer uso real e evite manter senhas padrão em ambientes acessíveis pela rede.
+
+---
 
 ## 🛡️ Segurança
 
-O projeto utiliza:
+O projeto contempla:
 
-- Autenticação baseada em sessão
-- BCrypt para senhas
-- Controle de permissões por perfil
-- Proteção das APIs no backend
-- Registro de auditoria
-- Validações de dados
-- Verificação de acesso aos recursos
-- Ping utilizando o IP previamente cadastrado
+- Autenticação baseada em sessão;
+- BCrypt para proteção de senhas;
+- Controle de permissões por perfil;
+- Proteção das APIs no backend;
+- Registro de auditoria;
+- Validação de dados;
+- Verificação de acesso aos recursos;
+- Verificação de conectividade usando o IP previamente cadastrado.
 
-O endpoint de ping não permite comandos arbitrários enviados pelo usuário.
+O endpoint de ping foi projetado para não aceitar comandos arbitrários enviados pelo usuário.
 
-## 📚 Scripts SQL
+**Antes de uma implantação real**, revise configurações, credenciais, permissões, exposição de portas, uso de HTTPS, logs e tratamento de erros.
+
+---
+
+## 🗃️ Scripts SQL
 
 ```text
 01-schema.sql       → Estrutura principal
@@ -370,46 +410,50 @@ O endpoint de ping não permite comandos arbitrários enviados pelo usuário.
 06-audit.sql        → Auditoria
 ```
 
-## 🎯 Objetivo
+---
 
-O projeto coloca em prática conhecimentos de:
+## 🎯 Objetivo do projeto
 
-- SQL e PostgreSQL
-- Java e Spring Boot
-- REST API
-- Linux
-- Tomcat
-- Nginx
-- Redes
-- DNS
-- VLAN
-- Administração de servidores
-- Segurança
-- Docker
-- Git e GitHub
+O DNS & IP Manager busca reunir, em uma aplicação, recursos para gerenciamento de redes e infraestrutura, aplicando conhecimentos de:
 
-O cenário foi pensado para se aproximar de ambientes reais de **infraestrutura e administração de servidores**.
+- SQL e PostgreSQL;
+- Java e Spring Boot;
+- APIs REST;
+- Linux;
+- Apache Tomcat;
+- Nginx;
+- Redes, DNS e VLANs;
+- Administração de servidores;
+- Segurança e auditoria;
+- Docker;
+- Git e GitHub.
 
-## 🔮 Próximas Evoluções
+O cenário foi pensado para se aproximar de necessidades de **infraestrutura e administração de servidores**. A solução continua em desenvolvimento, com testes e melhorias planejadas para evoluir sua confiabilidade e funcionalidade.
 
-- Importação de redes e IPs via CSV
-- Sistema de alertas
-- Notificações por e-mail
-- HTTPS
-- LDAP / Active Directory
-- Dashboard avançado
-- Containerização completa
-- Testes automatizados
-- Histórico avançado de disponibilidade
-- Backup e restauração do banco
-- Permissões mais detalhadas
-- Melhorias de responsividade
+---
+
+## 🔮 Próximas evoluções
+
+- 📥 Importação de redes e IPs via CSV;
+- 🚨 Sistema de alertas;
+- 📧 Notificações por e-mail;
+- 🔒 Configuração de HTTPS;
+- 🏢 Integração com LDAP / Active Directory;
+- 📊 Dashboard avançado;
+- 🐳 Containerização completa;
+- 🧪 Testes automatizados;
+- 📈 Histórico avançado de disponibilidade;
+- 💾 Backup e restauração do banco;
+- 🔐 Permissões mais detalhadas;
+- 📱 Melhorias de responsividade.
+
+---
 
 ## 👨‍💻 Autor
 
 **Matheus Marks**
 
-Projeto idealizado e desenvolvido por mim com o objetivo de criar uma solução para gerenciamento de endereços IP, redes, registros DNS e infraestrutura de servidores. Atualmente, estou trabalhando para implementar a solução no ambiente real, testar suas funcionalidades e aprimorar continuamente o sistema, buscando torná-lo cada vez mais completo, confiável e adequado às necessidades do dia a dia.
+Projeto idealizado e desenvolvido por mim para criar uma solução de gerenciamento de endereços IP, redes, registros DNS e infraestrutura de servidores. Atualmente, estou trabalhando para implementar a solução no ambiente real, testar suas funcionalidades e aprimorar continuamente o sistema, buscando torná-lo cada vez mais completo, confiável e adequado às necessidades do dia a dia.
 
 ---
 
@@ -418,3 +462,7 @@ Projeto idealizado e desenvolvido por mim com o objetivo de criar uma solução 
 Se este projeto foi útil para você, considere deixar uma ⭐ no repositório.
 
 ---
+
+## 📄 Licença
+
+Este projeto está disponível sob a licença **MIT**. Consulte o arquivo [`LICENSE`](LICENSE) para obter os termos completos.
